@@ -12,15 +12,16 @@ const Main = () => {
 
   return (
     <div>
+
     <div className="min-h-screen bg-[#F2FAFF] container mx-auto flex flex-col items-center justify-center max-w-full lg:px-4 xl:px-5">
       {/* Navigation */}
       <nav className="container mx-auto px-4 pt-6 h-full">
-        <ul className="md:flex hidden relative items-center justify-center space-x-10 font-semibold text-[20px]">
+        <ul className="flex relative items-center justify-center space-x-10 font-semibold text-[20px]">
           {["Home", "About Us", "Wholesale"].map((item) => (
             <li
               key={item}
               onClick={() => handleClick(item)}
-              className={`text-[18px] relative cursor-pointer ${
+              className={`text-[18px] relative md:flex hidden cursor-pointer ${
                 active === item ? "text-black font-bold" : "text-gray-600"
               }`}
             >
@@ -31,15 +32,16 @@ const Main = () => {
             </li>
           ))}
           {/* Logo Centered */}
-          <div className="flex justify-center items-center">
+          <div className="hidden lg:flex justify-center items-center">
             <img src="/Vector (6).png" alt="Logo" className="w-16" />
+            <img src="/Component 195.png" alt="" className="absolute h-5 -top-3 pl-[77px]" />
           </div>
-          <img src="/Vector (7).png" alt="" className="absolute -top-2 pl-7" />
+
           {["Service", "News", "How it Works"].map((item) => (
             <li
               key={item}
               onClick={() => handleClick(item)}
-              className={`text-[18px] relative cursor-pointer ${
+              className={`text-[18px] relative md:flex hidden cursor-pointer ${
                 active === item ? "text-black font-bold" : "text-gray-600"
               }`}
             >
@@ -50,7 +52,7 @@ const Main = () => {
             </li>
           ))}
         </ul>
-        <div className="container mx-auto px-4 flex items-center justify-between md:hidden">
+        <div className="container relative mx-auto px-4 flex items-center justify-between md:hidden">
           <button onClick={() => setMenuOpen(!isMenuOpen)}>
             <svg
               className="w-6 h-6"
@@ -67,6 +69,10 @@ const Main = () => {
               />
             </svg>
           </button>
+          <div className="flex justify-center items-center">
+            <img src="/Vector (6).png" alt="Logo" className="w-16" />
+            <img src="/Component 195.png" alt="" className="absolute h-5 -top-3 pl-[77px]" />
+          </div>
         </div>
         {isMenuOpen && (
           <ul className="flex flex-col mt-4 space-y-4 md:hidden">
@@ -117,10 +123,10 @@ const Main = () => {
               placeholder="Email"
               className="px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button className="px-6 py-2 bg-[#7CC140] text-white rounded-full hover:bg-green-600 transition duration-300 flex items-center justify-center">
+            <button className="px-6 py-2 bg-[#7CC140] text-white rounded-full hover:bg-transparent hover:text-[#7CC140] border hover:border-[#7CC140] transition duration-300 flex items-center justify-center">
               Subscribe <ArrowRight className="ml-2 w-4 h-4" />
             </button>
-            <button className="px-6 py-2 bg-[#388Fcb] text-white rounded-full transition duration-300 flex items-center justify-center">
+            <button className="px-6 py-2 bg-[#388Fcb] text-white hover:bg-transparent hover:text-[#388Fcb] border hover:border-[#388Fcb] rounded-full transition duration-300 flex items-center justify-center">
               <Download className="mr-2 w-4 h-4" /> Stock List
             </button>
           </div>
