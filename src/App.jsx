@@ -1,8 +1,14 @@
+import Header from "./pages/Header"
+import Main from "./pages/Main"
+
 
 
 const App = () => {
   return (
-    <div className="">App</div>
+    <div>
+      <Header  />
+      <Main />
+    </div>
   )
 }
 export default App
