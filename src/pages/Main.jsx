@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Main = () => {
   return (
-    <div className="min-h-screen  container mx-auto items-center justify-center max-w-full lg:px-4 xl:px-5">
+    <div className="min-h-screen container mx-auto items-center justify-center max-w-full lg:px-4 xl:px-5">
       {/* Navigation */}
       <nav className="container mx-auto px-4 pt-3 flex items-center justify-center">
         

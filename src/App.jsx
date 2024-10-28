@@ -1,3 +1,4 @@
+import Footer from "./pages/Footer"
 import Header from "./pages/Header"
 import Main from "./pages/Main"
 
@@ -8,6 +9,7 @@ const App = () => {
     <div>
       <Header  />
       <Main />
+      <Footer />
     </div>
   )
 }
