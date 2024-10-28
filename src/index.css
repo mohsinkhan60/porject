@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   /* font-family:sans-serif */
@@ -8,13 +8,30 @@
 @tailwind utilities;
 
 @layer base {
-   * {
-     @apply p-0 m-0 box-border font-[outfit];
-   }
- 
-   body {
-     @apply overflow-x-hidden;
-   }
+  * {
+    @apply p-0 m-0 box-border font-[Poppins];
+  }
 
- }
- 
+  body {
+    @apply overflow-x-hidden;
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scrolling-container {
+  overflow: hidden; /* Hide overflow */
+  white-space: nowrap; /* Prevent wrapping of flex items */
+}
+
+.scrolling-content {
+  display: flex; /* Use flex for alignment */
+  animation: scroll 20s linear infinite; /* Adjust the duration for speed */
+}
+
