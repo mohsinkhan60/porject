@@ -176,11 +176,11 @@ const Main = () => {
                 <span className="text-[#7CC140]"> people Registered</span>
               </div>
             </div>
-            <div className="container absolute mx-auto hidden lg:flex flex-col space-y-4 px-4 py-12">
+            <div className="container absolute mx-auto hidden lg:flex flex-col space-y-4 pr-4 py-12">
               {/* Gradient Bar 1 */}
-              <div className="w-2/3 h-5 rounded-r-full bg-gradient-to-r from-green-400 to-blue-500"></div>
+              <div className="w-2/3 h-3 rounded-r-full bg-gradient-to-r from-green-400 to-blue-500"></div>
               {/* Gradient Bar 2 */}
-              <div className="w-full h-5 rounded-r-full bg-gradient-to-r from-blue-400 to-green-500"></div>
+              <div className="w-full h-3 rounded-r-full bg-gradient-to-r from-blue-400 to-green-500"></div>
             </div>
           </div>
 
