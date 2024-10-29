@@ -1,28 +1,52 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRef } from 'react';
 
 const Footer = () => {
   const phones = [
     {
       name: 'iPhone 14 Pro Max',
       description: 'Apple iPhone 14 Pro 512GB Gold (MQ233)',
-      image: '/Iphone 14 pro 1.png'
+      image: '/Iphone 14 pro 1.png',
     },
     {
       name: 'iPhone 14 Pro Max',
       description: 'Apple iPhone 14 Pro 512GB Gold (MQ233)',
-      image: '/Iphone 14 pro 1.png'
+      image: '/Iphone 14 pro 1.png',
     },
     {
       name: 'iPhone 14 Pro Max',
       description: 'Apple iPhone 14 Pro 512GB Gold (MQ233)',
-      image: '/Iphone 14 pro 1.png'
+      image: '/Iphone 14 pro 1.png',
     },
     {
       name: 'iPhone 14 Pro Max',
       description: 'Apple iPhone 14 Pro 512GB Gold (MQ233)',
-      image: '/Iphone 14 pro 1.png'
+      image: '/Iphone 14 pro 1.png',
     },
   ];
+
+  // Ref to capture the scrollable container
+  const scrollContainerRef = useRef(null);
+
+  // Scroll Left
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -300, // Adjust based on card width
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  // Scroll Right
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 300, // Adjust based on card width
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 mt-20 max-w-full lg:px-10">
@@ -42,32 +66,41 @@ const Footer = () => {
       </p>
 
       {/* Phone Cards Section */}
-      <div className="flex items-center justify-center gap-6 mb-8">
-        {phones.map((phone, index) => (
-          <div 
-            key={index} 
-            className="bg-white rounded-lg shadow-md overflow-hidden border-[3px] border-[#7CC141] transition-transform hover:scale-105"
-          >
-            <div className="p-4 flex flex-col items-center">
-              <img 
-                src={phone.image} 
-                alt={phone.name} 
-                className="w-full h-32 object-contain mb-4" 
-              />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                {phone.name}
-              </h3>
-              <p className="text-sm text-gray-600 text-center">
-                {phone.description}
-              </p>
+      <div className="relative">
+        <div
+          ref={scrollContainerRef}
+          className="flex items-center lg:justify-center gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-4 sm:px-0"
+        >
+          {phones.map((phone, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-md overflow-hidden border-[3px] border-[#7CC141] 
+                transition-transform snap-center flex-shrink-0 w-[300px]"
+            >
+              <div className="p-4 flex flex-col items-center">
+                <img
+                  src={phone.image}
+                  alt={phone.name}
+                  className="w-full h-32 object-contain mb-4"
+                />
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {phone.name}
+                </h3>
+                <p className="text-sm text-gray-600 text-center">
+                  {phone.description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Pagination Section */}
-      <div className="flex justify-center items-center space-x-4 mb-4">
-        <button className="p-2 rounded-full text-[#7cc141] border border-[#7cc141] hover:bg-[#7cc141] hover:text-white transition">
+      <div className="flex justify-center items-center space-x-4 mt-8">
+        <button
+          onClick={scrollLeft}
+          className="p-2 rounded-full text-[#7cc141] border border-[#7cc141] hover:bg-[#7cc141] hover:text-white transition"
+        >
           <ChevronLeft size={24} />
         </button>
 
@@ -83,7 +116,10 @@ const Footer = () => {
           ))}
         </div>
 
-        <button className="p-2 rounded-full text-[#7cc141] border border-[#7cc141] hover:bg-[#7cc141] hover:text-white transition">
+        <button
+          onClick={scrollRight}
+          className="p-2 rounded-full text-[#7cc141] border border-[#7cc141] hover:bg-[#7cc141] hover:text-white transition"
+        >
           <ChevronRight size={24} />
         </button>
       </div>
