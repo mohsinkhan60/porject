@@ -2,13 +2,12 @@ import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <div className="bg-[#388FCB] text-white">
+    <div className="bg-[#388FCB] text-white z-50 sticky">
       {/* Header */}
       <header className="p-4">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-          
           {/* Left Section: Contact Info */}
-          <div className="flex flex-row sm:flex-row items-center justify-between gap-20 lg:gap-0 sm:space-y-0 sm:space-x-4">
+          <div className="flex flex-row sm:flex-row items-center justify-between gap-20 lg:gap-12 sm:space-y-0 sm:space-x-4">
             <a
               href="mailto:info@abc.com"
               className="flex items-center space-x-2 hover:underline"
@@ -26,7 +25,7 @@ const Header = () => {
           </div>
 
           {/* Right Section: Links */}
-          <div className="flex items-center justify-between gap-16 lg:gap-0">
+          <div className="flex items-center justify-between gap-16 lg:gap-12">
             <a href="#" className="hover:underline text-sm sm:text-base">
               Privacy Policy
             </a>
@@ -41,5 +40,3 @@ const Header = () => {
 };
 
 export default Header;
-
- 

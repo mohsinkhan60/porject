@@ -26,12 +26,12 @@
 }
 
 .scrolling-container {
-  overflow: hidden; /* Hide overflow */
-  white-space: nowrap; /* Prevent wrapping of flex items */
+  overflow: hidden;
+  white-space: nowrap; 
 }
 
 .scrolling-content {
-  display: flex; /* Use flex for alignment */
-  animation: scroll 20s linear infinite; /* Adjust the duration for speed */
+  display: flex;
+  animation: scroll 20s linear infinite; 
 }
 
