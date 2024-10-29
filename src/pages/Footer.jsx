@@ -23,6 +23,16 @@ const Footer = () => {
       description: 'Apple iPhone 14 Pro 512GB Gold (MQ233)',
       image: '/Iphone 14 pro 1.png',
     },
+    {
+      name: 'iPhone 14 Pro Max',
+      description: 'Apple iPhone 14 Pro 512GB Gold (MQ233)',
+      image: '/Iphone 14 pro 1.png',
+    },
+    {
+      name: 'iPhone 14 Pro Max',
+      description: 'Apple iPhone 14 Pro 512GB Gold (MQ233)',
+      image: '/Iphone 14 pro 1.png',
+    },
   ];
 
   // Ref to capture the scrollable container
@@ -32,7 +42,7 @@ const Footer = () => {
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: -300, // Adjust based on card width
+        left: -200, 
         behavior: 'smooth',
       });
     }
@@ -42,7 +52,7 @@ const Footer = () => {
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: 300, // Adjust based on card width
+        left: 200, 
         behavior: 'smooth',
       });
     }
@@ -69,12 +79,18 @@ const Footer = () => {
       <div className="relative">
         <div
           ref={scrollContainerRef}
-          className="flex items-center lg:justify-center gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-4 sm:px-0"
-        >
+          className="flex items-center lg:justify-betweeen gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-4 sm:px-0"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <style>{`
+              .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
           {phones.map((phone, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden border-[3px] border-[#7CC141] 
+              className="bg-white rounded-lg  shadow-md overflow-hidden border-[3px] border-[#7CC141] 
                 transition-transform snap-center flex-shrink-0 w-[300px]"
             >
               <div className="p-4 flex flex-col items-center">
