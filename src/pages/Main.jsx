@@ -1,10 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ArrowRight, Download, Users } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Main = () => {
   const [active, setActive] = useState("Home");
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const items = ["Mobile Phones", "Tablets", "Laptops"];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleClick = (item) => {
     setActive(item);
@@ -106,16 +117,33 @@ const Main = () => {
         </nav>
 
         {/* Hero Section */}
-        <div className="container min-h-[75vh] h-full mx-auto py-12 md:py-16 flex flex-col md:flex-row">
+        <div className="container min-h-[75vh] h-full mx-auto pt-12 md:py-16 flex flex-col md:flex-row">
           {/* Left Column */}
           <div className="relative md:w-1/2 mb-12 md:mb-0 px-4">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
               Largest <span className="text-[#388FCB]">Wholesalers</span>
               <br />
             </h1>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-              of <span className="text-[#388FCB]"> Mobile Phones</span>
+
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 flex items-center">
+              of&nbsp;
+              <div className="overflow-hidden h-[48px] relative w-[500px]">
+                <div
+                  className="absolute transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateY(-${currentIndex * 35}%)` }}
+                >
+                  {items.map((item, index) => (
+                    <div
+                      key={index}
+                      className="h-12 flex items-center justify-start"
+                    >
+                      <span className="text-[#388FCB]">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </h1>
+
             <p className="text-gray-600 mb-6">
               Supply that meets Demand. Get the best wholesale prices of
               <br />
@@ -150,7 +178,7 @@ const Main = () => {
             </div>
             <div className="container absolute mx-auto hidden lg:flex flex-col space-y-4 px-4 py-12">
               {/* Gradient Bar 1 */}
-              <div className="w-full h-5 rounded-r-full bg-gradient-to-r from-green-400 to-blue-500"></div>
+              <div className="w-2/3 h-5 rounded-r-full bg-gradient-to-r from-green-400 to-blue-500"></div>
               {/* Gradient Bar 2 */}
               <div className="w-full h-5 rounded-r-full bg-gradient-to-r from-blue-400 to-green-500"></div>
             </div>
